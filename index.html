@@ -1,0 +1,277 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<link rel="icon" type="image/svg+xml" href="/Rusty.ico" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Fredoka:wght@300..700&display=swap"
+			rel="stylesheet"
+		/>
+		<script
+			src="https://unpkg.com/@lottiefiles/dotlottie-wc@0.8.11/dist/dotlottie-wc.js"
+			type="module"
+		></script>
+		<title>Rusty flip</title>
+	</head>
+
+	<body>
+		<div id="header"></div>
+
+		<main>
+			<section class="admin">
+				<dotlottie-wc
+					src="https://lottie.host/c7db6dfe-59d2-4a8b-a9b4-f82b83a59cc2/yQsKvrf7WR.lottie"
+					class="chip"
+					autoplay
+					loop
+				></dotlottie-wc>
+				<h2>Welcome back, admin01</h2>
+				<div class="admin__coinflip">
+					<div>create your coinflip</div>
+					<span>Feeling <a href="/">Lucky?</a></span>
+				</div>
+
+				<div class="admin__xp">
+					<div class="admin__xp_bar">
+						<div class="admin__xp_bar_inside" id="target"></div>
+					</div>
+					<div class="admin__under_xp_bar">
+						<p>Current XP Progress</p>
+						<span contenteditable id="editable">30</span>
+					</div>
+					<div class="admin__lvl">234</div>
+				</div>
+				<div class="admin__backdrop"></div>
+			</section>
+
+			<section class="content">
+				<div class="toggler">
+					<p id="left">Transactions</p>
+					<p id="right">Game History</p>
+					<span id="highlight"></span>
+				</div>
+
+				<div class="battle" id="content1">
+					<div class="battle__instance">
+						<div class="battle__cash">
+							<p>Total value</p>
+							<span>$5.24</span>
+						</div>
+
+						<div class="battle__top">
+							<div class="battle__vs">
+								<div class="battle__vs_left">
+									<div>
+										<picture>
+											<source
+												srcset="user-small.webp 1x, user-small@2x.webp 2x"
+												type="image/webp"
+											/>
+											<source
+												srcset="user-small.png 1x, user-small@2x.png 2x"
+												type="image/jpeg"
+											/>
+											<img
+												src="user-small@2x.png"
+												alt="Player avatar"
+												width="50"
+												height="50"
+											/>
+										</picture>
+									</div>
+								</div>
+								<span>vs</span>
+								<div class="battle__vs_right">
+									<div class="battle__oops">
+										<img src="icons/oops.svg" alt="oposition" class="icon" />
+									</div>
+								</div>
+							</div>
+							<div class="battle__created">Created by: <span>Leo</span></div>
+							<div class="battle__prize">
+								<ul>
+									<li class="gun1"></li>
+									<li class="gun2"></li>
+									<li class="gun3"></li>
+									<li class="gun2"></li>
+									<li class="gun1"></li>
+									<li>+18</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="battle__join">
+							<span></span>
+							<div>join battle</div>
+						</div>
+					</div>
+					<div class="battle__instance">
+						<div class="battle__cash">
+							<p>Total value</p>
+							<span>$4.18</span>
+						</div>
+
+						<div class="battle__top">
+							<div class="battle__vs">
+								<div class="battle__vs_left">
+									<div>
+										<picture>
+											<source
+												srcset="user-small2.webp 1x, user-small2@2x.webp 2x"
+												type="image/webp"
+											/>
+											<source
+												srcset="user-small2.png 1x, user-small2@2x.png 2x"
+												type="image/jpeg"
+											/>
+											<img
+												src="user-small2@2x.png"
+												alt="Player avatar"
+												width="50"
+												height="50"
+											/>
+										</picture>
+									</div>
+								</div>
+								<span>vs</span>
+								<div class="battle__vs_right">
+									<div class="battle__oops">
+										<img src="icons/oops.svg" alt="oposition" class="icon" />
+									</div>
+								</div>
+							</div>
+							<div class="battle__created">Created by: <span>Alexx</span></div>
+							<div class="battle__prize">
+								<ul>
+									<li class="gun2"></li>
+									<li class="gun1"></li>
+									<li class="gun2"></li>
+									<li class="gun3"></li>
+									<li class="gun1"></li>
+									<li>+9</li>
+								</ul>
+							</div>
+						</div>
+
+						<div class="battle__join">
+							<span></span>
+							<div>join battle</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="game_history" id="content2">
+					<div class="game_history__headers">
+						<div>ID</div>
+						<div>GAME WAGER</div>
+						<div>CREDITED</div>
+						<div>WIN CHANCE</div>
+						<div>DATE</div>
+						<div>TIME</div>
+					</div>
+
+					<div class="game_history__table">
+						<div class="game_history__shadow" id="shadow"></div>
+						<div class="game_history__wrap" id="scrollContainer">
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--green">+3,265.22</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--red">0</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--green">+3,265.22</div>
+								<div class="game_history__chance--red">12.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--red">0</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--green">+3,265.22</div>
+								<div class="game_history__chance--red">12.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--red">0</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--green">+3,265.22</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--red">0</div>
+								<div class="game_history__chance--red">11.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--green">+3,265.22</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+							<div class="game_history__row">
+								<div class="game_history__id"><span>#</span>2184721</div>
+								<div class="game_history__wager">100.45</div>
+								<div class="game_history__credited--red">0</div>
+								<div class="game_history__chance--green">52.86%</div>
+								<div class="game_history__date">19/2/24</div>
+								<div class="game_history__time">12:21</div>
+							</div>
+						</div>
+
+						<div class="game_history__pagination"></div>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer class="footer" id="footer"></footer>
+		<script>
+			fetch("/icons/icons.svg")
+				.then((r) => r.text())
+				.then((svg) => {
+					document.body.insertAdjacentHTML("afterbegin", svg);
+				});
+		</script>
+		<script type="module" src="/src/main.js"></script>
+	</body>
+</html>

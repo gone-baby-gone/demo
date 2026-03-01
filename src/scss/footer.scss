@@ -1,0 +1,127 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.footer {
+	margin-top: 32px;
+	margin-bottom: 16px;
+	padding-top: 16px;
+	border-top: 1px solid $color-border-subtle;
+
+	@include flex;
+
+	@include desktop {
+		flex-shrink: 0;
+		width: 100%;
+	}
+
+	> div:first-of-type {
+		max-width: 340px;
+		margin: 0 auto;
+
+		@include desktop {
+			max-width: 480px;
+			margin: 0;
+		}
+	}
+
+	> div:last-of-type {
+		margin-right: 80px;
+		margin-left: auto;
+
+		@include flex(center, normal);
+
+		h3 {
+			margin-top: 0;
+		}
+
+		ul {
+			margin-right: 48px;
+			padding-left: 0;
+
+			li {
+				margin-bottom: 11px;
+				font-size: $font-size-s;
+				list-style-type: none;
+
+				a {
+					color: #eee;
+					text-decoration: none;
+
+					&:hover {
+						text-decoration: underline;
+					}
+				}
+			}
+		}
+
+		@media (width <= 1023px) {
+			display: none;
+		}
+	}
+
+	&__logo {
+		display: block;
+		height: 35px;
+		margin: 0 auto;
+		margin-bottom: 10px;
+		background-image: url("/RustyFlip.png");
+		background-repeat: no-repeat;
+		background-position: left center;
+		background-size: contain;
+		aspect-ratio: 84 / 34;
+
+		@include desktop {
+			margin: 0 0 16px;
+		}
+	}
+
+	p {
+		margin: 0;
+		padding-bottom: 22px;
+		text-align: center;
+		color: rgb(180 180 180);
+
+		@include desktop {
+			text-align: left;
+		}
+	}
+
+	p:nth-of-type(1) {
+		font-size: $font-size-s;
+	}
+
+	p:nth-of-type(2) {
+		font-size: $font-size-xs;
+	}
+
+	p:nth-of-type(3) {
+		font-size: $font-size-s;
+	}
+
+	&__socials {
+		@include flex;
+
+		@include desktop {
+			justify-content: left;
+		}
+	}
+
+	&__twitter {
+		margin-right: 16px;
+		background-image: url("/twitter.png");
+	}
+
+	&__discord {
+		background-image: url("/discord.png");
+	}
+
+	&__twitter,
+	&__discord {
+		width: 28px;
+		height: 28px;
+		border: 1px solid $color-border-primary;
+		border-radius: 12px;
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+}

@@ -1,0 +1,30 @@
+{
+	"name": "my-page",
+	"private": true,
+	"version": "0.0.0",
+	"type": "module",
+	"scripts": {
+		"dev": "vite",
+		"build": "vite build",
+		"preview": "vite preview",
+		"deploy": "gh-pages -d dist",
+		"lint:css": "stylelint \"src/**/*.scss\" --fix"
+	},
+	"devDependencies": {
+		"autoprefixer": "^10.4.23",
+		"cssnano": "^7.1.2",
+		"gh-pages": "^6.3.0",
+		"postcss": "^8.5.6",
+		"postcss-cli": "^11.0.1",
+		"postcss-scss": "^4.0.9",
+		"sass": "^1.97.3",
+		"stylelint": "^17.4.0",
+		"stylelint-config-recess-order": "^7.6.1",
+		"stylelint-config-standard-scss": "^17.0.0",
+		"stylelint-order": "^7.0.1",
+		"vite": "^7.2.4"
+	},
+	"dependencies": {
+		"jquery": "^4.0.0"
+	}
+}

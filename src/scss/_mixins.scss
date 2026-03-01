@@ -1,0 +1,77 @@
+@mixin red-button($height: 42px, $border-radius: 14px) {
+	height: $height;
+	box-sizing: border-box;
+	border-radius: $border-radius;
+	background: linear-gradient(135deg, #ff3140 0%, #ec1b24 50%, #d41922 100%);
+
+	box-shadow:
+		0 2px 6px rgb(255 49 64 / 40%),
+		inset 0 1px 0 rgb(255 255 255 / 25%);
+
+	font-weight: 800;
+	line-height: $height - 2px;
+	text-align: center;
+	text-transform: uppercase;
+	color: #fff;
+	cursor: pointer;
+	filter: brightness(1) saturate(1);
+	transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+
+	&:hover {
+		filter: brightness(0.92) saturate(1.05);
+		transform: translateY(-1px);
+		box-shadow:
+			0 3px 10px rgb(255 49 64 / 50%),
+			inset 0 1px 0 rgb(255 255 255 / 30%);
+	}
+
+	&:active {
+		transform: translateY(0);
+		filter: brightness(0.85);
+	}
+}
+
+@mixin elem {
+	height: 42px;
+	min-width: 42px;
+	box-sizing: border-box;
+	border: 1px solid rgb(58 57 56);
+	border-radius: 12px;
+	background-color: #1a1a19;
+}
+
+@mixin desktop-l {
+	@media (width >= 1350px) {
+		@content;
+	}
+}
+
+@mixin desktop {
+	@media (width >= 1024px) {
+		@content;
+	}
+}
+
+@mixin tablet {
+	@media (width >= 768px) {
+		@content;
+	}
+}
+
+@mixin tablet-s {
+	@media (width >= 500px) {
+		@content;
+	}
+}
+
+@mixin flex($justify: center, $align: center, $direction: row) {
+	display: flex;
+	flex-direction: $direction;
+	justify-content: $justify;
+	align-items: $align;
+}
+
+@mixin absolute($top: auto, $right: auto, $bottom: auto, $left: auto) {
+	inset: $top $right $bottom $left;
+	position: absolute;
+}

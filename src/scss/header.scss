@@ -1,0 +1,385 @@
+@use "./variables" as *;
+@use "./mixins" as *;
+
+.header {
+	position: relative;
+	width: 100%;
+	height: 42px;
+	padding: 26px 0;
+	flex-shrink: 0;
+	gap: 24px;
+
+	@include flex(space-between, center);
+
+	@include desktop {
+		width: 100%;
+		height: 58px;
+		max-width: 1525px;
+	}
+
+	&__extras {
+		flex: 1;
+		height: inherit;
+
+		@include flex(end, center);
+	}
+
+	&__logo {
+		display: block;
+
+		@include desktop {
+			margin-right: 32px;
+		}
+
+		img {
+			display: block;
+			height: 100%;
+
+			@include desktop {
+				width: 100%;
+				height: auto;
+			}
+		}
+	}
+
+	&__notification {
+		max-width: 20px;
+		margin-right: 8px;
+		background-image: url("/icons/bell.png");
+		background-repeat: no-repeat;
+		background-position: center;
+		background-size: 20px;
+		cursor: pointer;
+
+		@include elem;
+	}
+
+	&__shop-desc {
+		padding: 0 18px;
+
+		@include red-button;
+
+		@media (width <= 1023px) {
+			display: none;
+		}
+	}
+
+	&__deposit-desc {
+		width: 200px;
+		height: 42px;
+		margin-right: 10px;
+		padding-left: 20px;
+		box-sizing: border-box;
+		border: 1px solid $color-border-light;
+		border-radius: 14px;
+		background-color: $color-bg-dark;
+		background-image:
+			url("/score.png"),
+			radial-gradient(
+				circle at 0% 0%,
+				rgb(255 60 80 / 25%) 0%,
+				rgb(255 60 80 / 0%) 55%
+			);
+		background-repeat: no-repeat;
+		background-position:
+			5px center,
+			0 0;
+		text-align: right;
+
+		@include flex(flex-end);
+
+		span {
+			color: #686868;
+		}
+
+		> div {
+			margin-right: 7px;
+			margin-left: 16px;
+			padding: 0 7px;
+			font-size: $font-size-s;
+
+			@include red-button(28px, 8px);
+		}
+
+		@media (width <= 1023px) {
+			display: none;
+		}
+	}
+
+	&__user {
+		margin-right: 8px;
+		padding: 4px;
+		cursor: pointer;
+
+		@include flex(center, normal);
+		@include elem;
+
+		@include desktop {
+			margin-left: 48px;
+		}
+
+		img {
+			width: 32px;
+			height: 32px;
+			border-radius: 8px;
+			object-fit: cover;
+		}
+
+		p,
+		div,
+		picture {
+			display: inline-block;
+			margin-right: 4px;
+		}
+	}
+
+	&__user-name {
+		max-width: 50px;
+		margin: 0;
+		overflow: hidden;
+		font-size: $font-size-s;
+		line-height: 2rem;
+		white-space: nowrap;
+		color: #fff;
+		text-overflow: ellipsis;
+	}
+
+	&__user-score {
+		width: 29px;
+		height: 16px;
+		margin: auto 0;
+		border-radius: 2px;
+		background: linear-gradient(rgb(255 255 255) 0%, rgb(148 148 148) 100%);
+		font-size: $font-size-xxs;
+		text-align: center;
+		color: $color-bg-primary;
+		border-bottom: 2px solid rgb(58 57 56);
+	}
+
+	&__menu-toggler {
+		cursor: pointer;
+
+		transition:
+			background-color 0.2s ease,
+			border-color 0.2s ease;
+
+		&:hover {
+			background-color: #232321;
+			border-color: rgb(255 255 255 / 25%);
+		}
+
+		&:active {
+			background-color: #161615;
+		}
+		@include flex;
+		@include elem;
+
+		@include desktop-l {
+			display: none;
+		}
+	}
+
+	&__menu {
+		width: calc(100% - 48px);
+		max-width: 500px;
+		margin: 0 auto;
+		padding: 16px;
+		box-sizing: border-box;
+		border: 1px solid rgb(84 84 84 / 50%);
+		border-radius: 32px;
+		background: $color-bg-primary;
+		box-shadow:
+			0 20px 40px rgb(0 0 0 / 40%),
+			0 0 0 1px rgb(255 255 255 / 5%) inset;
+		transition: transform 0.4s ease;
+		transform: translateX(100%);
+
+		@include desktop-l {
+			position: unset;
+			width: unset;
+			height: 37px;
+			min-width: 530px;
+			max-width: unset;
+			padding: 0;
+			box-sizing: border-box;
+			transform: unset;
+		}
+
+		.header__menu_overlay.active & {
+			width: calc(100% - 48px);
+			transform: translateX(0);
+		}
+	}
+
+	&__menu_overlay {
+		position: fixed;
+		z-index: 5;
+		overflow: hidden;
+		opacity: 0;
+		transition: all 0.3s ease;
+		backdrop-filter: blur(6px);
+		inset: 96px 0 0;
+		visibility: hidden;
+
+		@include desktop-l {
+			position: unset;
+			overflow: visible;
+			opacity: initial;
+			transition: none;
+			backdrop-filter: unset;
+			visibility: initial;
+		}
+
+		&.active {
+			overflow: hidden;
+			opacity: 1;
+			visibility: visible;
+		}
+	}
+
+	&__menu_wrapper {
+		list-style-type: none;
+		margin: 0;
+		padding: 0 8px;
+
+		@include desktop-l {
+			height: 100%;
+
+			@include flex(space-between, center);
+		}
+	}
+
+	&__menu_item:not(:last-of-type) {
+		@include desktop-l {
+			margin-right: 10px;
+		}
+	}
+
+	&__menu_item {
+		height: 46px;
+		margin-bottom: 12px;
+
+		@include desktop-l {
+			display: inline-block;
+			width: fit-content;
+			height: 25px;
+			margin-bottom: 0;
+		}
+
+		a {
+			width: 100%;
+			height: 100%;
+			box-sizing: border-box;
+			border: 1px solid rgb(255 255 255 / 12%);
+			border-radius: 13px;
+			background-color: $color-bg-secondary;
+			font-size: $font-size-l;
+			font-weight: 600;
+			line-height: 25px;
+			color: #686868;
+			cursor: pointer;
+			outline: none;
+			text-decoration: none;
+
+			@include flex(start);
+			transition:
+				background-color 0.2s ease,
+				border-color 0.2s ease,
+				color 0.2s ease;
+
+			&:hover {
+				background-color: #232321;
+				border-color: rgb(255 255 255 / 25%);
+				color: #ffffff;
+			}
+
+			&:active {
+				background-color: #161615;
+			}
+			@include desktop-l {
+				padding-right: 7px;
+				font-size: $font-size-s;
+				line-height: 20px;
+			}
+
+			svg {
+				display: block;
+				justify-content: center;
+				align-items: center;
+				width: 24px;
+				height: 24px;
+				margin-right: 9px;
+				padding-top: 5px;
+				padding-left: 18px;
+
+				@include desktop-l {
+					margin-right: 0;
+					padding-left: 6px;
+					transform: scale(70%);
+				}
+			}
+		}
+	}
+
+	&__menu_item:last-child {
+		margin-bottom: 0;
+	}
+
+	&__menu_footer {
+		margin-top: 27px;
+
+		@include flex(space-between);
+
+		@include tablet-s {
+			justify-content: right;
+		}
+
+		@include desktop {
+			display: none;
+		}
+
+		> div {
+			flex: 1 1 0;
+			height: 42px;
+			box-sizing: border-box;
+			border-radius: 14px;
+			line-height: 40px;
+
+			@include tablet-s {
+				max-width: 120px;
+			}
+		}
+
+		> div:not(:last-child) {
+			margin-right: 10px;
+		}
+	}
+
+	&__mobile_score {
+		padding-left: 20px;
+		border: 1px solid $color-border-light;
+		background-color: $color-bg-dark;
+		background-image:
+			url("/score.png"),
+			radial-gradient(
+				circle at 0% 0%,
+				rgb(255 60 80 / 25%) 0%,
+				rgb(255 60 80 / 0%) 55%
+			);
+		background-repeat: no-repeat;
+		background-position:
+			5px center,
+			0 0;
+		text-align: right;
+
+		span {
+			padding-right: 7px;
+			color: #686868;
+		}
+	}
+
+	&__shop,
+	&__deposit {
+		@include red-button;
+	}
+}

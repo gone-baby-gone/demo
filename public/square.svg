@@ -1,0 +1,5 @@
+<svg width="12" height="12" viewBox="0 0 12 12" xmlns="http://www.w3.org/2000/svg">
+  <g transform="translate(2, 1)">
+    <rect transform="skewX(-15)" x="0" y="0" width="12" height="12" fill="rgba(255,255,255,0.15)" rx="0.5"/>
+  </g>
+</svg>
